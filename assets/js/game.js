@@ -5,11 +5,22 @@ var randomNumber = function(min, max) {
     return value;
 };
 
+//Make sure player name input is acceptable
+var getPlayerName = function() {
+  var name = "";
+  while (name === "" || name === null ) {
+    name = prompt("What is your robot's name?");
+  };
+
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
-    money: 10
+    money: 10,
     reset: function() {
         this.health = 100;
         this.money = 10;
@@ -142,6 +153,7 @@ var startGame = function (){
     // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
     endGame();
 };
+
 
 // function to end the entire game
 var endGame = function() {
